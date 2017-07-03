@@ -1,0 +1,225 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    //border:1px solid red;
+}
+*::before,*::after{
+    box-sizing: border-box;
+}
+body,html{
+    background-color: transparent;
+    text-align: center;
+    color:white;
+    font-size: 14px;
+    font-family:Helvetica, sans-serif;
+    color: #333;
+}
+h1,h2,h3{
+    font-weight: normal;
+}
+#disc-wrapper{
+    min-width:320px;
+    height:100vh; 
+    overflow: hidden;
+    opacity: 1;  
+    display: flex;
+    flex-direction: column;
+    position:relative;
+}
+#disc-wrapper::before{
+    content:"";
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7); 
+    position:absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+}
+#disc-wrapper .pointer{
+    width:26vw;
+    height:36vw;
+    position:absolute;
+    left:45%;
+    z-index:3;
+}
+.pointer.change1{
+    transition: transform .5s ease-out;
+    transform:rotate(-10deg); 
+    transform-origin: 0 0;
+}
+.pointer.change2{
+    transition: transform .5s ease-out;
+    transform:rotate(0deg); 
+    transform-origin: 0 0;
+}
+#disc-wrapper .pointer img{
+    width:100%;
+    height:100%;
+}
+#disc-wrapper .disc-container{
+    display:flex;
+    display:-webkit-flex;
+
+    justify-content: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+
+    align-items: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+
+    position: relative;
+    margin-top:58vw;
+    z-index:2;  
+    animation: circling 20s infinite linear;
+}
+
+#disc-wrapper .icon-pause{display:none;}
+#disc-wrapper .disc-container.playing~.icon-play{display:none;}
+#disc-wrapper .disc-container.playing~.icon-pause{display:block;}
+
+
+@-webkit-keyframes circling {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes circling {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+.disc-container .disc{
+    width:80vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.disc-container .light{
+    width:80vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.disc-container .picture{
+    width:50vw;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);   
+}
+ 
+#disc-wrapper .icon{
+   position:absolute;
+   top:33%;
+   left:50%;
+   transform: translate(-50%,-50%);
+   width:100%;
+   z-index: 5;
+   fill:rgba(255,255,255,0);
+}
+
+#disc-wrapper .links{
+    position:absolute;
+    bottom:3vh;
+    display: flex;
+    z-index: 11;
+}
+#disc-wrapper .links a{
+    width:38vw;
+    line-height: 2.2;
+    background: transparent;
+    border:1px solid #d43b32;
+    -webkit-border-fit: repeat;
+    border-radius: 1vw;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 1vw;
+    z-index: 10;
+}
+#disc-wrapper .links a.btn1{
+    margin-left:10vw;
+    margin-right:3vw;
+    color:#d43b32
+}
+#disc-wrapper .links a.btn2{
+    margin-right:10vw;
+    background: #d43b32;
+    color:#fff;
+}
+
+
+#disc-wrapper .m-song-info{
+    position: relative;
+    z-index: 3;
+    top:40vw;
+    height:20vh;
+    //overflow: hidden;
+}
+.m-song-info {
+    padding: 0 9vw;
+    margin-top: 7vw;
+}
+
+.m-song-h2 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fefefe;
+    //overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-song-gap {
+    margin: 0 4px
+}
+
+.m-song-autr {
+    font-size: 16px;
+    color: hsla(0,0%,100%,.6)
+}
+
+.lyric {
+    margin-top: 3vw;
+    height:90px;
+    overflow: hidden;
+   
+}
+.lyric-scroll{
+    transition:transform .3s ease-out;
+}
+
+.lyric p {
+    color: hsla(0,0%,100%,.6);
+    font-size: 16px;
+    line-height: 30px;
+}
+.lyric p.active{
+    color:white;
+}
