@@ -1,4 +1,4 @@
-console.log(888)
+
 $(function () {
     //index.html
     setTimeout(function () {

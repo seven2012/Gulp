@@ -1,0 +1,41 @@
+{
+  "name": "163",
+  "version": "1.0.0",
+  "description": "",
+  "main": "song.js",
+  "scripts": {
+    "start": "cd build; static",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "reset": "rm -rf build",
+    "mkdir": "mkdir build",
+    "css": "postcss *.css -d build/",
+    "images": "imagemin images/* --out-dir=build/images",
+    "static-files": "cp *.html build/ && cp *.json build/",
+    "js": "uglifyjs index.js > build/index.js && uglifyjs song.js > build/song.js",
+    "build": "npm run reset & npm run mkdir & npm run static-files & npm run css & npm run js & npm run images"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-preset-env": "^1.5.2",
+    "cssnano": "^3.10.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^3.5.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "imagemin-cli": "^3.0.0",
+    "node-static": "^0.7.9",
+    "postcss": "^6.0.4",
+    "postcss-cli": "^4.1.0",
+    "uglify-es": "^3.0.23",
+    "uglify-js": "^3.0.23"
+  },
+  "dependencies": {}
+}
